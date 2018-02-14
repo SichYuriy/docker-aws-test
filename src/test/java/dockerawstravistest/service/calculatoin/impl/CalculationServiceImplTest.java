@@ -11,7 +11,6 @@ public class CalculationServiceImplTest {
 
     @Test
     public void getSum() {
-        assertTrue(false);// Test travis red build(test fail)
         assertEquals(5, calculationService.getSum(2, 3));
     }
 }
