@@ -18,6 +18,7 @@ public class CalculationController {
 
     @GetMapping("/sum")
     public int getSum(@RequestParam int a,@RequestParam int b) {
+        Travis test: compilation error
         return calculationService.getSum(a, b);
     }
 
