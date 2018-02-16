@@ -1,6 +1,13 @@
 language: java
+sudo: required
+services:
+  - docker
 branches:
   only:
   - master
 git:
   depth: 1
+deploy:
+  - docker build -t sichyuriyy/docker-aws-travis-test:latest .
+  - docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
+  - docker push sichyuriyy/docker-aws-travis-test:latest
