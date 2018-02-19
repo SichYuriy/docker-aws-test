@@ -11,3 +11,8 @@ after_success:
   - docker build -t sichyuriyy/docker-aws-travis-test:latest .
   - docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
   - docker push sichyuriyy/docker-aws-travis-test:latest
+  - pip install --user awscli
+  - eval $(aws ecr get-login --region us-east-2 --no-include-email)
+  - docker tag sichyuriyy/docker-aws-travis-test:latest 739684674407.dkr.ecr.us-east-2.amazonaws.com/get-started:latest
+  - docker push 739684674407.dkr.ecr.us-east-2.amazonaws.com/get-started:latest
+
